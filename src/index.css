@@ -2,68 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Pride Dentist Design System - Modern, clean, trustworthy dental practice */
+/* Pride Dentist Design System - Ultra-Modern Dental Experience */
 
 @layer base {
   :root {
-    /* Core Brand Colors - Medical Trust & Cleanliness */
-    --background: 0 0% 100%;
-    --foreground: 210 15% 20%;
+    /* Modern Glass Morphism Background */
+    --background: 0 0% 99%;
+    --foreground: 210 20% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 210 15% 20%;
+    --card-foreground: 210 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 15% 20%;
+    --popover-foreground: 210 20% 15%;
 
-    /* Primary - Medical Blue (Trust & Professionalism) */
-    --primary: 210 75% 45%;
+    /* Primary - Contemporary Medical Blue */
+    --primary: 210 100% 50%;
     --primary-foreground: 0 0% 100%;
-    --primary-light: 210 75% 55%;
-    --primary-dark: 210 75% 35%;
+    --primary-light: 210 100% 60%;
+    --primary-dark: 210 100% 40%;
+    --primary-glow: 210 100% 70%;
 
-    /* Secondary - Soft Teal (Freshness & Calm) */
-    --secondary: 180 45% 85%;
-    --secondary-foreground: 210 15% 20%;
-    --secondary-accent: 180 55% 65%;
+    /* Secondary - Modern Aqua Gradient Base */
+    --secondary: 180 60% 88%;
+    --secondary-foreground: 210 20% 15%;
+    --secondary-accent: 180 70% 55%;
+    --secondary-dark: 180 60% 35%;
 
-    /* Accent - Warm Coral (Care & Warmth) */
-    --accent: 15 75% 70%;
+    /* Accent - Vibrant Coral Energy */
+    --accent: 15 85% 65%;
     --accent-foreground: 0 0% 100%;
-    --accent-light: 15 75% 80%;
+    --accent-light: 15 85% 75%;
+    --accent-glow: 15 85% 85%;
 
-    /* Muted & Neutral Tones */
-    --muted: 210 25% 96%;
-    --muted-foreground: 210 15% 55%;
+    /* Muted Glass Effect */
+    --muted: 210 30% 97%;
+    --muted-foreground: 210 20% 50%;
+    --muted-dark: 210 15% 88%;
 
-    /* Success - Healthy Green */
-    --success: 140 65% 45%;
+    /* Success - Fresh Medical Green */
+    --success: 140 75% 45%;
     --success-foreground: 0 0% 100%;
+    --success-glow: 140 75% 70%;
 
-    /* Destructive remains medical red */
-    --destructive: 0 75% 55%;
+    /* Destructive - Modern Alert Red */
+    --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 25% 90%;
-    --input: 210 25% 94%;
-    --ring: 210 75% 45%;
+    --border: 210 30% 92%;
+    --input: 210 30% 96%;
+    --ring: 210 100% 50%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Gradients for Modern Appeal */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary-accent)) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.9), hsl(210 25% 98%));
+    /* Ultra-Modern Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 50%, hsl(var(--secondary-accent)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 25%, hsl(var(--secondary-accent)) 75%, hsl(var(--accent-light)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.95), hsl(210 30% 98% / 0.9));
+    --gradient-glass: linear-gradient(145deg, hsl(0 0% 100% / 0.25), hsl(210 30% 95% / 0.1));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--accent-glow)) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary-accent)) 0%, hsl(var(--secondary-dark)) 100%);
 
-    /* Shadows for Depth */
-    --shadow-soft: 0 4px 20px hsl(210 25% 25% / 0.08);
-    --shadow-medium: 0 8px 30px hsl(210 25% 25% / 0.12);
-    --shadow-strong: 0 15px 40px hsl(210 25% 25% / 0.15);
+    /* Advanced Shadow System */
+    --shadow-glass: 0 8px 32px hsl(210 30% 20% / 0.1), 0 2px 8px hsl(210 30% 20% / 0.05);
+    --shadow-soft: 0 4px 24px hsl(210 30% 25% / 0.08);
+    --shadow-medium: 0 12px 40px hsl(210 30% 25% / 0.12);
+    --shadow-strong: 0 20px 60px hsl(210 30% 25% / 0.15);
+    --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
+    --shadow-accent-glow: 0 0 30px hsl(var(--accent) / 0.4);
 
-    /* Typography Scale */
-    --font-size-hero: 3.5rem;
-    --font-size-section: 2.5rem;
-    --font-size-card: 1.25rem;
+    /* Modern Typography Scale */
+    --font-size-hero: 4rem;
+    --font-size-section: 2.75rem;
+    --font-size-card: 1.375rem;
+    --font-size-subtitle: 1.125rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -143,21 +155,44 @@
 }
 
 @layer components {
-  /* Hero Section Styles */
+  /* Modern Glass Hero Section */
   .hero-gradient {
     background: var(--gradient-hero);
+    position: relative;
+  }
+
+  .hero-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, hsl(var(--primary-glow) / 0.3), transparent 50%),
+                radial-gradient(circle at 80% 80%, hsl(var(--accent-glow) / 0.2), transparent 50%);
+    pointer-events: none;
   }
 
   .hero-title {
     font-size: var(--font-size-hero);
-    line-height: 1.1;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    text-shadow: 0 2px 10px hsl(0 0% 0% / 0.1);
   }
 
-  /* Card Styles */
+  /* Modern Glass Card System */
   .card-gradient {
     background: var(--gradient-card);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(0 0% 100% / 0.2);
+  }
+
+  .card-glass {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid hsl(0 0% 100% / 0.15);
+    box-shadow: var(--shadow-glass);
   }
 
   .shadow-soft {
@@ -172,34 +207,95 @@
     box-shadow: var(--shadow-strong);
   }
 
-  /* Button Variants */
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-accent-glow {
+    box-shadow: var(--shadow-accent-glow);
+  }
+
+  /* Ultra-Modern Button System */
   .btn-hero {
-    @apply bg-primary hover:bg-primary-dark text-primary-foreground px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-medium hover:shadow-strong;
+    @apply bg-primary hover:bg-primary-dark text-primary-foreground px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-500 shadow-medium hover:shadow-glow;
+    transform: translateY(0);
+  }
+
+  .btn-hero:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  .btn-glass {
+    @apply backdrop-blur-md border border-white/20 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300;
+    background: hsl(0 0% 100% / 0.1);
+    box-shadow: var(--shadow-glass);
+  }
+
+  .btn-glass:hover {
+    background: hsl(0 0% 100% / 0.2);
+    transform: translateY(-1px);
   }
 
   .btn-secondary {
-    @apply bg-secondary hover:bg-secondary-accent text-secondary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300;
+    @apply bg-secondary hover:bg-secondary-accent text-secondary-foreground px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-soft hover:shadow-medium;
   }
 
   .btn-accent {
-    @apply bg-accent hover:bg-accent-light text-accent-foreground px-6 py-3 rounded-lg font-medium transition-all duration-300;
+    @apply bg-accent hover:bg-accent-light text-accent-foreground px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-medium hover:shadow-accent-glow;
   }
 
-  /* Animation Classes */
+  /* Modern Animation System */
   .fade-in-up {
-    animation: fadeInUp 0.6s ease-out forwards;
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 
   .fade-in-left {
-    animation: fadeInLeft 0.8s ease-out forwards;
+    animation: fadeInLeft 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 
   .fade-in-right {
-    animation: fadeInRight 0.8s ease-out forwards;
+    animation: fadeInRight 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
   }
 
   .hover-lift {
-    @apply transition-transform duration-300 hover:transform hover:-translate-y-2;
+    @apply transition-all duration-300;
+    transform: translateY(0) scale(1);
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-strong);
+  }
+
+  /* Modern Service Cards */
+  .service-card {
+    @apply card-glass rounded-3xl p-8 hover-lift;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .service-card:hover {
+    background: var(--gradient-card);
+    border-color: hsl(var(--primary) / 0.3);
+  }
+
+  /* Team Member Cards */
+  .team-card {
+    @apply card-glass rounded-2xl overflow-hidden hover-lift;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Modern Typography */
+  .section-title {
+    font-size: var(--font-size-section);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .card-title {
+    font-size: var(--font-size-card);
+    font-weight: 600;
+    letter-spacing: -0.01em;
   }
 }
 
@@ -210,13 +306,27 @@
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .glass-effect {
+    backdrop-filter: blur(16px);
+    background: hsl(0 0% 100% / 0.1);
+    border: 1px solid hsl(0 0% 100% / 0.2);
+  }
+
+  .floating-animation {
+    animation: floating 6s ease-in-out infinite;
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
 }
 
-/* Keyframe Animations */
+/* Advanced Keyframe Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -227,7 +337,7 @@
 @keyframes fadeInLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-40px);
   }
   to {
     opacity: 1;
@@ -238,10 +348,28 @@
 @keyframes fadeInRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(40px);
   }
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
   }
 }

@@ -37,54 +37,58 @@ const Team = () => {
   ];
 
   return (
-    <section id="team" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <Badge className="mb-4 bg-accent/10 text-accent border-accent/20">
+    <section id="team" className="py-24 bg-background relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-32 left-10 w-36 h-36 rounded-full bg-secondary-accent/20 blur-3xl floating-animation" />
+      <div className="absolute bottom-20 right-20 w-44 h-44 rounded-full bg-accent-glow/15 blur-3xl floating-animation" style={{ animationDelay: '3s' }} />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-20">
+          <Badge className="mb-6 glass-effect backdrop-blur-lg text-accent border-accent/30 px-6 py-3 text-base font-semibold">
             Expert Care Team
           </Badge>
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="section-title text-foreground mb-6">
             Meet Our Experienced Dentists
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
             Our team of skilled dentists brings decades of combined experience and 
             specialized expertise to provide you with the highest quality dental care.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {doctors.map((doctor, index) => (
             <Card 
               key={doctor.name}
-              className="card-gradient border-0 shadow-soft hover-lift hover:shadow-medium transition-all duration-300 overflow-hidden"
+              className="team-card group"
+              style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="relative">
+              <div className="relative overflow-hidden">
                 <img 
                   src={doctor.image} 
                   alt={`Dr. ${doctor.name} - Professional headshot`}
-                  className="w-full h-80 object-cover"
+                  className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-2xl font-bold">{doctor.name}</h3>
-                  <p className="text-white/90 font-medium">{doctor.credentials}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                <div className="absolute bottom-6 left-6 text-white">
+                  <h3 className="text-2xl font-bold mb-1">{doctor.name}</h3>
+                  <p className="text-white/90 font-semibold text-lg">{doctor.credentials}</p>
                 </div>
               </div>
               
-              <CardContent className="p-6">
-                <div className="space-y-4">
+              <CardContent className="p-8">
+                <div className="space-y-6">
                   {/* Specialties */}
                   <div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Heart className="h-4 w-4 text-accent" />
-                      <span className="font-semibold text-foreground">Specialties</span>
+                    <div className="flex items-center space-x-3 mb-3">
+                      <Heart className="h-5 w-5 text-accent" />
+                      <span className="font-bold text-foreground">Specialties</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
                       {doctor.specialties.map((specialty) => (
                         <Badge 
                           key={specialty}
-                          variant="secondary"
-                          className="text-xs bg-primary/10 text-primary border-primary/20"
+                          className="glass-effect text-primary border-primary/30 font-medium"
                         >
                           {specialty}
                         </Badge>
@@ -94,23 +98,23 @@ const Team = () => {
 
                   {/* Education */}
                   <div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <GraduationCap className="h-4 w-4 text-success" />
-                      <span className="font-semibold text-foreground">Education</span>
+                    <div className="flex items-center space-x-3 mb-3">
+                      <GraduationCap className="h-5 w-5 text-success" />
+                      <span className="font-bold text-foreground">Education</span>
                     </div>
-                    <p className="text-sm text-muted-foreground">{doctor.education}</p>
+                    <p className="text-muted-foreground leading-relaxed">{doctor.education}</p>
                   </div>
 
                   {/* Affiliations */}
                   <div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <Award className="h-4 w-4 text-secondary-accent" />
-                      <span className="font-semibold text-foreground">Affiliations</span>
+                    <div className="flex items-center space-x-3 mb-3">
+                      <Award className="h-5 w-5 text-secondary-accent" />
+                      <span className="font-bold text-foreground">Affiliations</span>
                     </div>
-                    <ul className="space-y-1">
+                    <ul className="space-y-2">
                       {doctor.affiliations.map((affiliation) => (
-                        <li key={affiliation} className="text-sm text-muted-foreground flex items-center space-x-2">
-                          <div className="w-1 h-1 bg-secondary-accent rounded-full" />
+                        <li key={affiliation} className="text-muted-foreground flex items-center space-x-3">
+                          <div className="w-1.5 h-1.5 bg-secondary-accent rounded-full" />
                           <span>{affiliation}</span>
                         </li>
                       ))}
@@ -118,9 +122,11 @@ const Team = () => {
                   </div>
 
                   {/* Description */}
-                  <p className="text-sm text-muted-foreground leading-relaxed pt-2 border-t border-border">
-                    {doctor.description}
-                  </p>
+                  <div className="pt-4 border-t border-border">
+                    <p className="text-muted-foreground leading-relaxed">
+                      {doctor.description}
+                    </p>
+                  </div>
                 </div>
               </CardContent>
             </Card>

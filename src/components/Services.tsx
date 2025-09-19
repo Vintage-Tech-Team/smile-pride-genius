@@ -62,46 +62,51 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">
+    <section id="services" className="py-24 bg-muted/20 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-20 right-10 w-40 h-40 rounded-full bg-primary-glow/10 blur-3xl" />
+      <div className="absolute bottom-32 left-16 w-48 h-48 rounded-full bg-accent-glow/10 blur-3xl" />
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-20">
+          <Badge className="mb-6 glass-effect backdrop-blur-lg text-primary border-primary/30 px-6 py-3 text-base font-semibold">
             Comprehensive Care
           </Badge>
-          <h2 className="text-4xl font-bold text-foreground mb-4">
+          <h2 className="section-title text-foreground mb-6">
             Complete Dental Services
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             From routine cleanings to advanced procedures, we provide comprehensive 
             dental care using the latest technology and techniques.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
               <Card 
                 key={service.title}
-                className="card-gradient border-0 shadow-soft hover-lift hover:shadow-medium transition-all duration-300"
+                className="service-card group"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                <CardHeader className="text-center pb-4">
-                  <div className={`w-16 h-16 ${service.bgColor} rounded-2xl flex items-center justify-center mx-auto mb-4`}>
-                    <IconComponent className={`h-8 w-8 ${service.color}`} />
+                <CardHeader className="text-center pb-6">
+                  <div className={`w-20 h-20 ${service.bgColor} rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <IconComponent className={`h-10 w-10 ${service.color}`} />
                   </div>
-                  <CardTitle className="text-xl font-semibold text-foreground">
+                  <CardTitle className="card-title text-foreground mb-3">
                     {service.title}
                   </CardTitle>
-                  <CardDescription className="text-muted-foreground">
+                  <CardDescription className="text-muted-foreground text-base">
                     {service.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center space-x-2 text-sm text-foreground">
-                        <div className={`w-1.5 h-1.5 ${service.bgColor} rounded-full`} />
-                        <span>{feature}</span>
+                      <li key={feature} className="flex items-center space-x-3 text-foreground">
+                        <div className={`w-2 h-2 ${service.color.replace('text-', 'bg-')} rounded-full shadow-sm`} />
+                        <span className="font-medium">{feature}</span>
                       </li>
                     ))}
                   </ul>
